@@ -2,8 +2,8 @@
   "model_name": "SVM",
   "best_overall_score": 0.5064288678914787,
   "best_overall_params": {
-    "C": 342.62883561258633,
-    "gamma": "auto",
+    "C": 862.8614570564184,
+    "gamma": "scale",
     "kernel": "rbf"
   },
   "search_config": {
@@ -14,7 +14,7 @@
     "total_configurations": 800
   },
   "param_space": {
-    "C": "<scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x00000260E7C1F850>",
+    "C": "<scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x0000023BCAF08750>",
     "kernel": [
       "rbf",
       "linear",
@@ -24,87 +24,87 @@
     "gamma": [
       "scale",
       "auto",
-      23.53386125621482,
-      8.75211442267666,
-      24.428539098272143,
-      63.02975634089222,
-      46.407736217268855,
-      66.00733396640769,
-      50.58353809801683,
-      80.19519076500156,
-      84.66912068342454,
-      89.36283554782409
+      47.16645779470755,
+      85.35442650181143,
+      50.82333864671558,
+      8.49117574849775,
+      71.93589356464726,
+      98.2628005763721,
+      86.25693000860028,
+      60.47729529327936,
+      9.539366466653188,
+      84.46066017219526
     ]
   },
   "top_10_configs": [
     {
       "mean_test_score": 0.5064288678914787,
       "std_test_score": 0.017177179495203778,
-      "C": 342.62883561258633,
-      "gamma": "auto",
-      "kernel": "rbf"
-    },
-    {
-      "mean_test_score": 0.5064288678914787,
-      "std_test_score": 0.017177179495203778,
-      "C": 400.49441691472913,
+      "C": 862.8614570564184,
       "gamma": "scale",
       "kernel": "rbf"
     },
     {
       "mean_test_score": 0.5064288678914787,
       "std_test_score": 0.017177179495203778,
-      "C": 720.0242712793886,
-      "gamma": "auto",
-      "kernel": "rbf"
-    },
-    {
-      "mean_test_score": 0.5064288678914787,
-      "std_test_score": 0.017177179495203778,
-      "C": 703.3623376480448,
-      "gamma": "auto",
-      "kernel": "rbf"
-    },
-    {
-      "mean_test_score": 0.5064288678914787,
-      "std_test_score": 0.017177179495203778,
-      "C": 893.0160275333361,
+      "C": 260.09070795366654,
       "gamma": "scale",
       "kernel": "rbf"
     },
     {
       "mean_test_score": 0.5064288678914787,
       "std_test_score": 0.017177179495203778,
-      "C": 869.3563976293005,
+      "C": 745.2156762308755,
       "gamma": "auto",
       "kernel": "rbf"
     },
     {
       "mean_test_score": 0.5064288678914787,
       "std_test_score": 0.017177179495203778,
-      "C": 712.5677803556752,
+      "C": 943.4815931475326,
       "gamma": "auto",
       "kernel": "rbf"
     },
     {
       "mean_test_score": 0.5064288678914787,
       "std_test_score": 0.017177179495203778,
-      "C": 812.5408903874429,
+      "C": 827.3239596578068,
       "gamma": "auto",
       "kernel": "rbf"
     },
     {
       "mean_test_score": 0.5064288678914787,
       "std_test_score": 0.017177179495203778,
-      "C": 552.2974453309039,
-      "gamma": "auto",
-      "kernel": "rbf"
-    },
-    {
-      "mean_test_score": 0.5064288678914787,
-      "std_test_score": 0.017177179495203778,
-      "C": 335.6917834858754,
+      "C": 652.9487651596738,
       "gamma": "scale",
+      "kernel": "rbf"
+    },
+    {
+      "mean_test_score": 0.5064288678914787,
+      "std_test_score": 0.017177179495203778,
+      "C": 719.0043934232598,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    {
+      "mean_test_score": 0.5064288678914787,
+      "std_test_score": 0.017177179495203778,
+      "C": 157.03973807351434,
+      "gamma": "auto",
+      "kernel": "rbf"
+    },
+    {
+      "mean_test_score": 0.5064288678914787,
+      "std_test_score": 0.017177179495203778,
+      "C": 145.15137748624096,
+      "gamma": "auto",
+      "kernel": "rbf"
+    },
+    {
+      "mean_test_score": 0.5064288678914787,
+      "std_test_score": 0.017177179495203778,
+      "C": 825.3032474359851,
+      "gamma": "auto",
       "kernel": "rbf"
     }
   ]
