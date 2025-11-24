@@ -1,0 +1,88 @@
+{
+  "model_name": "LVQ",
+  "best_overall_score": 0.3682016317016317,
+  "best_overall_params": {
+    "learning_rate": 0.009595652316469458,
+    "n_epochs": 25,
+    "prototypes_per_class": 84
+  },
+  "search_config": {
+    "n_searches": 20,
+    "n_iter_per_search": 40,
+    "scoring": "f1",
+    "cv_folds": 5,
+    "total_configurations": 100
+  },
+  "top_10_configs": [
+    {
+      "mean_test_score": 0.3682016317016317,
+      "std_test_score": 0.0862664894588269,
+      "learning_rate": 0.009595652316469458,
+      "n_epochs": 25,
+      "prototypes_per_class": 84
+    },
+    {
+      "mean_test_score": 0.3674629912571089,
+      "std_test_score": 0.07620627366500098,
+      "learning_rate": 0.006156594058564535,
+      "n_epochs": 27,
+      "prototypes_per_class": 95
+    },
+    {
+      "mean_test_score": 0.3674629912571089,
+      "std_test_score": 0.07620627366500098,
+      "learning_rate": 0.007098318054986946,
+      "n_epochs": 19,
+      "prototypes_per_class": 95
+    },
+    {
+      "mean_test_score": 0.3674629912571089,
+      "std_test_score": 0.07620627366500098,
+      "learning_rate": 0.005755460374868267,
+      "n_epochs": 23,
+      "prototypes_per_class": 95
+    },
+    {
+      "mean_test_score": 0.3674629912571089,
+      "std_test_score": 0.07620627366500098,
+      "learning_rate": 0.0044210762086359405,
+      "n_epochs": 29,
+      "prototypes_per_class": 94
+    },
+    {
+      "mean_test_score": 0.36744516594516596,
+      "std_test_score": 0.07622686524432541,
+      "learning_rate": 0.009309491710550684,
+      "n_epochs": 26,
+      "prototypes_per_class": 95
+    },
+    {
+      "mean_test_score": 0.3661118326118326,
+      "std_test_score": 0.07792400879441909,
+      "learning_rate": 0.008349258473948941,
+      "n_epochs": 37,
+      "prototypes_per_class": 94
+    },
+    {
+      "mean_test_score": 0.36508441558441557,
+      "std_test_score": 0.07970146793041759,
+      "learning_rate": 0.004154068957480127,
+      "n_epochs": 5,
+      "prototypes_per_class": 76
+    },
+    {
+      "mean_test_score": 0.36508441558441557,
+      "std_test_score": 0.07970146793041759,
+      "learning_rate": 0.0064425733701525085,
+      "n_epochs": 5,
+      "prototypes_per_class": 76
+    },
+    {
+      "mean_test_score": 0.36508441558441557,
+      "std_test_score": 0.07970146793041759,
+      "learning_rate": 0.004171957167653987,
+      "n_epochs": 15,
+      "prototypes_per_class": 75
+    }
+  ]
+}
