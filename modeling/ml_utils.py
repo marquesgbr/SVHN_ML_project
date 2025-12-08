@@ -10,6 +10,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (accuracy_score, precision_score, recall_score, 
                             f1_score, roc_auc_score)
 
+SCORING_METRIC = 'f1_macro'
 
 def gmean_score(y_true, y_pred):
     """Calcula o G-Mean (Geometric Mean) para problemas multiclasse"""

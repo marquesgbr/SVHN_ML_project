@@ -17,7 +17,8 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
                  mlp1_max_iter=200,
                  mlp1_activation='relu',
                  mlp1_learning_rate='constant',
-                 
+                 mlp1_solver='adam',
+
                  # Parâmetros da MLP 2
                  mlp2_hidden_layers=(100, 50),
                  mlp2_alpha=0.01,
@@ -25,7 +26,8 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
                  mlp2_max_iter=200,
                  mlp2_activation='tanh',
                  mlp2_learning_rate='adaptive',
-                 
+                 mlp2_solver='adam',
+
                  # Parâmetros da MLP 3
                  mlp3_hidden_layers=(50,),
                  mlp3_alpha=0.01,
@@ -33,9 +35,10 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
                  mlp3_max_iter=200,
                  mlp3_activation='logistic',
                  mlp3_learning_rate='constant',
+                 mlp3_solver='adam',
                  
                  # Parâmetros do comitê
-                 solver='lbfgs', 
+                 solver=None, 
                  voting='soft',
                  random_state=None):
         """
@@ -59,6 +62,19 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
         random_state : int
             Seed para reprodutibilidade
         """
+        # Comitê
+        if solver is None:
+            self.mlp1_solver = mlp1_solver
+            self.mlp2_solver = mlp2_solver
+            self.mlp3_solver = mlp3_solver
+        else:
+            self.mlp1_solver = solver
+            self.mlp2_solver = solver
+            self.mlp3_solver = solver
+
+        self.voting = voting
+        self.random_state = random_state
+
         # MLP 1
         self.mlp1_hidden_layers = mlp1_hidden_layers
         self.mlp1_alpha = mlp1_alpha
@@ -82,11 +98,7 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
         self.mlp3_max_iter = mlp3_max_iter
         self.mlp3_activation = mlp3_activation
         self.mlp3_learning_rate = mlp3_learning_rate
-        
-        # Comitê
-        self.solver = solver
-        self.voting = voting
-        self.random_state = random_state
+    
         
     def fit(self, X, y):
         # Criar as 3 redes neurais com parâmetros individuais
@@ -96,7 +108,7 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
             learning_rate_init=self.mlp1_learning_rate_init,
             max_iter=self.mlp1_max_iter,
             activation=self.mlp1_activation,
-            solver=self.solver,
+            solver=self.mlp1_solver,
             random_state=self.random_state,
             early_stopping=True,
             learning_rate=self.mlp1_learning_rate,
@@ -109,7 +121,7 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
             learning_rate_init=self.mlp2_learning_rate_init,
             max_iter=self.mlp2_max_iter,
             activation=self.mlp2_activation,
-            solver=self.solver,
+            solver=self.mlp2_solver,
             random_state=self.random_state + 1 if self.random_state is not None else None,
             early_stopping=True,
             learning_rate=self.mlp2_learning_rate,
@@ -122,7 +134,7 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
             learning_rate_init=self.mlp3_learning_rate_init,
             max_iter=self.mlp3_max_iter,
             activation=self.mlp3_activation,
-            solver=self.solver,
+            solver=self.mlp3_solver,
             random_state=self.random_state + 2 if self.random_state is not None else None,
             early_stopping=True,
             learning_rate=self.mlp3_learning_rate,
