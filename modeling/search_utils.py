@@ -13,7 +13,9 @@ from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 
 # Constante para validação cruzada estratificada padrão
 DEFAULT_CV_STRATEGY = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
-
+SEARCHES_FOLDER = 'searches'
+RESULTS_FOLDER = 'results'
+MODELS_FOLDER = 'models'
 
 def plot_search_history(all_search_results, search_results, model_name, metric='mean_test_score'):
     """Plota a evolução dos resultados durante a busca de hiperparâmetros"""

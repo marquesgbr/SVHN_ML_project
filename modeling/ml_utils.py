@@ -12,13 +12,9 @@ from sklearn.metrics import (accuracy_score, precision_score, recall_score,
 
 
 def gmean_score(y_true, y_pred):
-    """Calcula o G-Mean (Geometric Mean) para problemas binários"""
-    # Sensitivity (recall da classe positiva - sepsis)
-    sensitivity = recall_score(y_true, y_pred, pos_label=1, zero_division=0)
-    # Specificity (recall da classe negativa - sem sepsis)
-    specificity = recall_score(y_true, y_pred, pos_label=0, zero_division=0)
-    # G-Mean é a média geométrica de sensitivity e specificity
-    return np.sqrt(sensitivity * specificity)
+    """Calcula o G-Mean (Geometric Mean) para problemas multiclasse"""
+    recalls = recall_score(y_true, y_pred, average=None, zero_division=0) 
+    return np.prod(recalls) ** (1 / len(recalls))
 
 
 def evaluate_model(model, X_train, X_test, y_train, y_test, model_name):
@@ -30,39 +26,27 @@ def evaluate_model(model, X_train, X_test, y_train, y_test, model_name):
     # Métricas de treino
     train_metrics = {
         'accuracy': accuracy_score(y_train, y_train_pred),
-        'precision': precision_score(y_train, y_train_pred, zero_division=0),
-        'recall': recall_score(y_train, y_train_pred, zero_division=0),
-        'f1': f1_score(y_train, y_train_pred, zero_division=0),
+        'precision': precision_score(y_train, y_train_pred, average='macro', zero_division=0),
+        'recall': recall_score(y_train, y_train_pred, average='macro', zero_division=0),
+        'f1': f1_score(y_train, y_train_pred, average='macro', zero_division=0),
         'gmean': gmean_score(y_train, y_train_pred)
     }
     
     # Métricas de teste
     test_metrics = {
         'accuracy': accuracy_score(y_test, y_test_pred),
-        'precision': precision_score(y_test, y_test_pred, zero_division=0),
-        'recall': recall_score(y_test, y_test_pred, zero_division=0),
-        'f1': f1_score(y_test, y_test_pred, zero_division=0),
+        'precision': precision_score(y_test, y_test_pred, average='macro', zero_division=0),
+        'recall': recall_score(y_test, y_test_pred, average='macro', zero_division=0),
+        'f1': f1_score(y_test, y_test_pred, average='macro', zero_division=0),
         'gmean': gmean_score(y_test, y_test_pred)
     }
-    
-    # AUC-ROC para problemas binários
-    try:
-        y_test_proba = model.predict_proba(X_test)[:, 1]  # Probabilidade da classe positiva
-        test_metrics['auc_roc'] = roc_auc_score(y_test, y_test_proba)
-        
-        # AUC-ROC para treino também
-        y_train_proba = model.predict_proba(X_train)[:, 1]
-        train_metrics['auc_roc'] = roc_auc_score(y_train, y_train_proba)
-    except Exception as e:
-        test_metrics['auc_roc'] = None
-        train_metrics['auc_roc'] = None
     
     return train_metrics, test_metrics, y_test_pred
 
 
-def load_and_prepare_datasets(train_path='../dataset_sepsis_train_pid_prep_v2.csv',
-                               test_path='../dataset_sepsis_test_pid_prep_v2.csv',
-                               target_column='SepsisLabel',
+def load_and_prepare_datasets(train_path='../SVHN_train_prep.csv',
+                               test_path='../SVHN_test_prep.csv',
+                               target_column='digit',
                                scale=True):
     """
     Carrega e prepara os datasets de treino e teste
