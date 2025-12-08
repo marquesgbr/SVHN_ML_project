@@ -12,7 +12,7 @@ import os
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 
 # Constante para validação cruzada estratificada padrão
-DEFAULT_CV_STRATEGY = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+DEFAULT_CV_STRATEGY = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 SEARCHES_FOLDER = 'searches'
 RESULTS_FOLDER = 'results'
 MODELS_FOLDER = 'models'
