@@ -1,0 +1,132 @@
+{
+  "model_name": "MLP",
+  "best_overall_score": 0.5076702039790275,
+  "best_overall_params": {
+    "activation": "relu",
+    "alpha": 0.07797105129481988,
+    "hidden_layer_sizes": "(768, 512, 256)",
+    "learning_rate": "invscaling",
+    "learning_rate_init": 0.004193494869125644,
+    "max_iter": 527,
+    "solver": "lbfgs"
+  },
+  "search_config": {
+    "n_searches": 30,
+    "n_iter_per_search": 5,
+    "scoring": "f1_macro",
+    "cv_folds": 10,
+    "total_configurations": 150
+  },
+  "top_configs": [
+    {
+      "mean_test_score": 0.5076702039790275,
+      "std_test_score": 0.10352353082212254,
+      "hidden_layer_sizes": "(768, 512, 256)",
+      "alpha": 0.07797105129481988,
+      "learning_rate_init": 0.004193494869125644,
+      "max_iter": 527,
+      "activation": "relu",
+      "learning_rate": "invscaling",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.4978349594162288,
+      "std_test_score": 0.06257250057376702,
+      "hidden_layer_sizes": "(1024, 512, 128)",
+      "alpha": 0.07822986756890074,
+      "learning_rate_init": 0.00019073489259680278,
+      "max_iter": 470,
+      "activation": "relu",
+      "learning_rate": "adaptive",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.4955423407002354,
+      "std_test_score": 0.03836976106535285,
+      "hidden_layer_sizes": "(1024, 256)",
+      "alpha": 0.0001141334492292961,
+      "learning_rate_init": 0.0025607602865927964,
+      "max_iter": 677,
+      "activation": "relu",
+      "learning_rate": "adaptive",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.49371432815550464,
+      "std_test_score": 0.06806448835856904,
+      "hidden_layer_sizes": "(1024, 256, 128)",
+      "alpha": 0.0658644452295932,
+      "learning_rate_init": 0.0008090161924604629,
+      "max_iter": 404,
+      "activation": "relu",
+      "learning_rate": "adaptive",
+      "solver": "adam"
+    },
+    {
+      "mean_test_score": 0.48401654417134293,
+      "std_test_score": 0.04866926903321826,
+      "hidden_layer_sizes": "(512, 512, 256)",
+      "alpha": 0.003339644078773217,
+      "learning_rate_init": 0.0011169251535556159,
+      "max_iter": 751,
+      "activation": "relu",
+      "learning_rate": "constant",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.47877986787893906,
+      "std_test_score": 0.0825180599977027,
+      "hidden_layer_sizes": "(1024, 128)",
+      "alpha": 0.0007556271990330614,
+      "learning_rate_init": 0.04532056304203873,
+      "max_iter": 738,
+      "activation": "relu",
+      "learning_rate": "constant",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.4771181713023819,
+      "std_test_score": 0.08869686963587657,
+      "hidden_layer_sizes": "(1024, 512)",
+      "alpha": 5.861933723810322e-05,
+      "learning_rate_init": 0.00032586426536327837,
+      "max_iter": 222,
+      "activation": "relu",
+      "learning_rate": "constant",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.4771181713023819,
+      "std_test_score": 0.08869686963587657,
+      "hidden_layer_sizes": "(1024, 512)",
+      "alpha": 3.2182794201188414e-05,
+      "learning_rate_init": 0.000612328330536641,
+      "max_iter": 292,
+      "activation": "relu",
+      "learning_rate": "adaptive",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.47614813849720977,
+      "std_test_score": 0.07321813717326003,
+      "hidden_layer_sizes": "(2048, 256)",
+      "alpha": 0.0045386639199176855,
+      "learning_rate_init": 0.00151188421468701,
+      "max_iter": 201,
+      "activation": "relu",
+      "learning_rate": "adaptive",
+      "solver": "lbfgs"
+    },
+    {
+      "mean_test_score": 0.47536456508747527,
+      "std_test_score": 0.048971658787284975,
+      "hidden_layer_sizes": "(1024, 512, 128)",
+      "alpha": 0.00011617540708810749,
+      "learning_rate_init": 0.010644257525429513,
+      "max_iter": 295,
+      "activation": "relu",
+      "learning_rate": "constant",
+      "solver": "lbfgs"
+    }
+  ]
+}
