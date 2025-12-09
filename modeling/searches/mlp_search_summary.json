@@ -1,13 +1,13 @@
 {
   "model_name": "MLP",
-  "best_overall_score": 0.519488284842888,
+  "best_overall_score": 0.49701073926073924,
   "best_overall_params": {
-    "alpha": 0.004381639438767804,
-    "hidden_layer_sizes": "(1024, 512, 128)",
-    "learning_rate": "constant",
-    "learning_rate_init": 0.009340299634645584,
-    "max_iter": 546,
-    "solver": "lbfgs"
+    "alpha": 0.0003788103031689,
+    "hidden_layer_sizes": "(2048, 256)",
+    "learning_rate": "adaptive",
+    "learning_rate_init": 0.023927224833345737,
+    "max_iter": 1174,
+    "solver": "sgd"
   },
   "search_config": {
     "n_searches": 20,
