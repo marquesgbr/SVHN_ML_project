@@ -1,0 +1,23 @@
+# Dependências do projeto (Recomendado criar um ambiente virtual)
+# Linha de comando para instalar: pip install -r requirements.txt
+
+pandas>=1.5
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+scipy>=1.10
+scikit-learn>=1.2
+xgboost>=1.7
+lightgbm>=3.3
+
+# Para notebooks / visualização 
+ipykernel>=6.15
+ipython>=8.0
+
+# Observações:
+# - 'warnings' é módulo da stdlib e não precisa ser listado.
+# - Imports como 'from google.colab import files' são específicos do Colab;
+#   se você só executa localmente no Windows, não é necessário incluir 'google-colab'.
+# - Ajuste/aconchegue versões se precisar de compatibilidade com uma versão específica do Python.
+# - Para congelar versões exatas depois de instalar localmente, execute:
+#     pip freeze > requirements.txt
