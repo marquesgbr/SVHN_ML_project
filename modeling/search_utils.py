@@ -260,15 +260,6 @@ def load_search_results(model_name, searches_folder='searches'):
     else:
         print(f"⚠️  Arquivo não encontrado: {json_path}")
     
-    # 3. Carregar backup pickle
-    pkl_path = os.path.join(searches_folder, f'{model_name.lower()}_full_search.pkl')
-    if os.path.exists(pkl_path):
-        with open(pkl_path, 'rb') as f:
-            results['full_backup'] = pickle.load(f)
-        print(f"✅ Backup completo carregado")
-    else:
-        print(f"⚠️  Arquivo não encontrado: {pkl_path}")
-    
     return results
 
 
@@ -287,13 +278,6 @@ def get_best_params_from_saved(model_name, searches_folder='searches'):
         with open(json_path, 'r') as f:
             summary = json.load(f)
         return summary['best_overall_params']
-    
-    # Fallback para pickle
-    pkl_path = os.path.join(searches_folder, f'{model_name.lower()}_full_search.pkl')
-    if os.path.exists(pkl_path):
-        with open(pkl_path, 'rb') as f:
-            backup = pickle.load(f)
-        return backup['best_params']
     
     print(f"❌ Não foi possível carregar parâmetros para {model_name}")
     return None
