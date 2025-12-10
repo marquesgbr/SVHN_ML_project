@@ -10,6 +10,7 @@ from sklearn.metrics import accuracy_score
 
 class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
     def __init__(self, 
+        
                  # Parâmetros da MLP 1
                  mlp1_hidden_layers=(100,),
                  mlp1_alpha=0.01,
@@ -41,7 +42,7 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
                  solver=None, 
                  voting='soft',
                  random_state=None):
-        """
+        '''
         Comitê de 3 Redes Neurais com parâmetros individuais (estilo Stacking)
         
         Cada rede do comitê tem seus próprios hiperparâmetros otimizados
@@ -61,8 +62,9 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
             Tipo de votação ('hard' ou 'soft')
         random_state : int
             Seed para reprodutibilidade
-        """
+        '''
         # Comitê
+
         if solver is None:
             self.mlp1_solver = mlp1_solver
             self.mlp2_solver = mlp2_solver
@@ -158,6 +160,51 @@ class NeuralNetworkCommittee(BaseEstimator, ClassifierMixin):
         self.committee.fit(X, y)
         self.classes_ = self.committee.classes_
         
+        return self
+    
+    def get_params(self, deep=True):
+        params = {
+            # Comitê
+            "voting": self.voting,
+            "random_state": self.random_state,
+
+            # MLP 1
+            "mlp1_hidden_layers": self.mlp1_hidden_layers,
+            "mlp1_alpha": self.mlp1_alpha,
+            "mlp1_learning_rate_init": self.mlp1_learning_rate_init,
+            "mlp1_max_iter": self.mlp1_max_iter,
+            "mlp1_activation": self.mlp1_activation,
+            "mlp1_learning_rate": self.mlp1_learning_rate,
+            "mlp1_solver": self.mlp1_solver,
+
+            # MLP 2
+            "mlp2_hidden_layers": self.mlp2_hidden_layers,
+            "mlp2_alpha": self.mlp2_alpha,
+            "mlp2_learning_rate_init": self.mlp2_learning_rate_init,
+            "mlp2_max_iter": self.mlp2_max_iter,
+            "mlp2_activation": self.mlp2_activation,
+            "mlp2_learning_rate": self.mlp2_learning_rate,
+            "mlp2_solver": self.mlp2_solver,
+
+            # MLP 3
+            "mlp3_hidden_layers": self.mlp3_hidden_layers,
+            "mlp3_alpha": self.mlp3_alpha,
+            "mlp3_learning_rate_init": self.mlp3_learning_rate_init,
+            "mlp3_max_iter": self.mlp3_max_iter,
+            "mlp3_activation": self.mlp3_activation,
+            "mlp3_learning_rate": self.mlp3_learning_rate,
+            "mlp3_solver": self.mlp3_solver,
+        }
+
+        return params
+
+    def set_params(self, **params):
+        for key, value in params.items():
+            # Apenas seta os atributos se existirem (bom para segurança)
+            if hasattr(self, key):
+                setattr(self, key, value)
+            else:
+                raise ValueError(f"Parâmetro '{key}' não existe no modelo.")
         return self
     
     def predict(self, X):
